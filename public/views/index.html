@@ -27,10 +27,8 @@
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#manual_modal_" contenteditable="false">Manual</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">About Condidate</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">Send Test Result</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#about_modal_" contenteditable="false">About
+                        Web Console</a>
                 </li>
             </ul>
         </div>
@@ -47,8 +45,45 @@
         </div>
         <div id="screen">
             <div class="line__ active">
+                <p>Type <span class="text-success">route</span> to start or click on manual menu for more information.</p>
                 <p class="font">geust@ekoapp:~$&nbsp;<span class='shell_out__'></span></span><span class="__cursor__">█</span>
                 </p>
+            </div>
+        </div>
+        <div class="text-muted powered-by">Powered by Web Console (snapshot version)</div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="about_modal_">
+        <div class="modal-dialog  modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">About Web Console</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        The idea of making an handy tools, came to my mind in few months ago, and finaly i found a time
+                        to
+                        implemenet it, the goal of having this
+                        web based command line is to collect all of my customized tools that i need to use them in
+                        daily
+                        basis.
+
+                        i hope you can easily work with it to run your test-task and i will be very happy to hear your
+                        feedback.
+                    </p>
+                    <br />
+                    <p>Best</p>
+                    <p class="text-success">
+                        <br />
+                        - Mojtaba (Mouschti) Bakhtiaree
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -57,13 +92,28 @@
         <div class="modal-dialog  modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Manual</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    <p>Type <span class="text-success">route</span> to start.</p>
+                    <br />
+                    <p>Route command comes with different options:</p>
+                    <p><span class="text-success">-all</span>: get all possible routes of two nodes.</p>
+                    <p><span class="text-success">-c (cheapest)</span>: get the cheapest possible route of two nodes.</p>
+                    <p><span class="text-success">-s (set)</span>: get Delivery cost of the given delivery route.</p>
+                    <br />
+
+                    <p>Examples:</p>
+                    <p><span class="text-success">route -all a-b</span></p>
+                    <p><span class="text-success">route -c a-b</span></p>
+                    <p><span class="text-success">route -s a-b-e</span></p>
+                    <br />
+                    <p>To run the command, press <span class="text-success">Enter</span></p>
+                    <p>To clear the screen, press <span class="text-success">ctrl + l</span></p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
