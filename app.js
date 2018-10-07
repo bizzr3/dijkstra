@@ -3,12 +3,13 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const request = require('request');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const path = require('path');
 const favicon = require('serve-favicon')
-const graph = require('./src/lib/Graph')
+const commandParser = require('./src/utils/commandParser/commandParser')
+
+const cmdParser = new commandParser();
 
 app.use('/public', express.static(process.env.PWD + '/public'));
 app.use('/jquery', express.static(process.env.PWD + '/node_modules/jquery/dist/'));
@@ -20,19 +21,8 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', client => {
-    console.log('Client connected.');
-
     client.on('_cmd', data => {
-        console.log(data);
-        client.emit('cmd_', { message: 'in progress' });
-        request(
-            process.env.API_URL + 'version',
-            (error, response, body) => {
-                setTimeout(() => {
-                    client.emit('cmd_', body);
-                }, 2000);
-            }
-        );
+        client.emit('cmd_', { message: cmdParser.parseCmd(data.message) });
     });
 });
 
