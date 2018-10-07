@@ -3,22 +3,56 @@
 const assert = require('chai').assert;
 const Router = require('../utils/Router');
 
-describe('Test Distict Routes:', () => {
-    it(`Possible Routes between A to E should be 4`, function () {
-        let router = new Router().getAllPossibleRoutes('a', 'e');
-
-        assert.equal(router.length, 4)
-    })
-
-    it(`Possible Routes between A to D should be 3`, function () {
-        let router = new Router().getAllPossibleRoutes('a', 'd');
+describe('Test Possible Routes:', () => {
+    it(`Possible Routes between E to D should be 3`, function () {
+        let router = new Router().getAllPossibleRoutes('e', 'd');
 
         assert.equal(router.length, 3)
     })
 
-    it(`Possible Routes between A to f should be 1`, function () {
-        let router = new Router().getAllPossibleRoutes('a', 'f');
+    it(`Possible Routes between E to E should be 5`, function () {
+        let router = new Router().getAllPossibleRoutes('e', 'e');
 
-        assert.equal(router.length, 1)
+        assert.equal(router.length, 5)
     })
 });
+
+describe('Test Delivery Cost of given input:', () => {
+    it(`Delivery cost of A-B-E should be 4`, function () {
+        let router = new Router().getRouteCostByInput('a-b-e');
+
+        assert.equal(router[0].cost, 4)
+    });
+
+    it(`Delivery cost of A-D should be 10`, function () {
+        let router = new Router().getRouteCostByInput('a-d');
+
+        assert.equal(router[0].cost, 10)
+    });
+
+    it(`Delivery cost of E-A-C-F should be 8`, function () {
+        let router = new Router().getRouteCostByInput('e-a-c-f');
+
+        assert.equal(router[0].cost, 8)
+    });
+
+    it(`Delivery cost of A-D-F should be undefined`, function () {
+        let router = new Router().getRouteCostByInput('a-d-f');
+
+        assert.equal(router[0], undefined)
+    });
+});
+
+describe('Test Cost of cheapest Delivery:', function () {
+    it(`Cheapset Delivery cost of A-D should be 9`, function () {
+        let router = new Router().getCheapestRoute('e', 'd');
+
+        assert.equal(router[0].cost, 9)
+    });
+
+    it(`Cheapset Delivery cost of E-E should be 6`, function () {
+        let router = new Router().getCheapestRoute('e', 'e');
+
+        assert.equal(router[0].cost, 6)
+    });
+})
