@@ -52,6 +52,7 @@ class commandParser {
 
     fortmatResponse(data) {
         let result = `<p>Possible Routes: ${data.length}</p>`;
+
         for (let index in data) {
             result += `<p>Route: <span class="text-success">${data[index].route}</span> , Cost: <span class="text-success">${data[index].cost}</span></p>`;
         }
