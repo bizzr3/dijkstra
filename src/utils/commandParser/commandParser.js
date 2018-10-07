@@ -43,11 +43,21 @@ class commandParser {
         switch (cmd[0]) {
             case 'route':
                 if (cmd[1] === '-all') {
-                    return this.router.getAllPossibleRoutes(cmd[2], cmd[3])
+                    return this.fortmatResponse(this.router.getAllPossibleRoutes(cmd[2], cmd[3]))
                 }
 
                 break;
         }
+    }
+
+    fortmatResponse(data) {
+        let result = `<p>Possible Routes: ${data.length}</p>`;
+
+        for (let index in data) {
+            result += `<p>Route: <span class="text-success">${data[index].route}</span> , Cost: <span class="text-success">${data[index].cost}</span></p>`;
+        }
+
+        return result;
     }
 
     generateErrorReply(type, data) {
