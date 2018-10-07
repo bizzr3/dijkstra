@@ -1,2 +1,2 @@
 # eko
-Eko Deliver service 
+Eko Delivery service 
