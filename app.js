@@ -7,10 +7,13 @@ const request = require('request');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const path = require('path');
+const favicon = require('serve-favicon')
+const graph = require('./src/lib/Graph')
 
 app.use('/public', express.static(process.env.PWD + '/public'));
 app.use('/jquery', express.static(process.env.PWD + '/node_modules/jquery/dist/'));
 app.use('/bootstrap', express.static(process.env.PWD + '/node_modules/bootstrap/dist/'));
+app.use(favicon(path.join(process.env.PWD + '/public/assets/img/Eko-logo.ico')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(process.env.PWD + '/public/views/index.html'));
