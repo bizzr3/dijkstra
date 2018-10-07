@@ -24,6 +24,7 @@ $(() => {
       `gesut@ekoapp:~$&nbsp;<span class="shell_out__"></span><span class="__cursor__" style="display: none;">█</span>`
     );
 
+
     $('.reply_line_.active').html(data.message);
 
     line_.append(content_);

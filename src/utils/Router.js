@@ -3,13 +3,7 @@ const Graph = require('../lib/Graph');
 class Router {
 
     constructor() {
-        this.isVisited = [];
-
-        this.pathList = [];
-
-        this.pathTraverses = [];
-
-        this.routes = [];
+        this.init();
 
         this.graphSetup = [
             'a-b-1',
@@ -36,6 +30,16 @@ class Router {
                 this.maple.addEdges(fromNode, toNode, cost);
             }
         });
+    }
+
+    init() {
+        this.isVisited = [];
+
+        this.pathList = [];
+
+        this.pathTraverses = [];
+
+        this.routes = [];
     }
 
     traverse(startNode, endNode, isVisited, pathList) {
@@ -90,6 +94,9 @@ class Router {
 
     getAllPossibleRoutes(start, finish) {
         let result = [];
+
+        this.init();
+
         let routes = this.traceAllPaths(start, finish);
 
         let route = '';
