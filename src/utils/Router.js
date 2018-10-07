@@ -113,6 +113,36 @@ class Router {
 
         return result;
     }
+
+    getCheapestRoute(start, finish) {
+        let possibleRoutes = this.getAllPossibleRoutes(start, finish);
+
+        let ecoRoute = possibleRoutes[0];
+
+        for (let index in possibleRoutes) {
+            let newCost = possibleRoutes[index].cost;
+
+            ecoRoute = ecoRoute.cost > newCost ? possibleRoutes[index] : ecoRoute;
+        }
+
+        return [ecoRoute];
+    }
+
+    getRouteCostByInput(route) {
+        let direction = route.replace(/ /g, '-');
+
+        route = route.split('-')
+
+        let possibleRoutes = this.getAllPossibleRoutes(route[0], route[route.length - 1]);
+
+        for (let index in possibleRoutes) {
+            if (direction === possibleRoutes[index].route) {
+                return [possibleRoutes[index]];
+            }
+        }
+
+        return [];
+    }
 }
 
 module.exports = Router;

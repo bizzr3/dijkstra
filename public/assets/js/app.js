@@ -21,7 +21,7 @@ $(() => {
     content_ = $('<p>');
     content_.addClass('font');
     content_.html(
-      `gesut@ekoapp:~$&nbsp;<span class="shell_out__"></span><span class="__cursor__" style="display: none;">█</span>`
+      `geust@ekoapp:~$&nbsp;<span class="shell_out__"></span><span class="__cursor__" style="display: none;">█</span>`
     );
 
     $('.reply_line_.active').html(data.message);
