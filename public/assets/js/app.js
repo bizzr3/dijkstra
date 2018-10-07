@@ -24,7 +24,7 @@ $(() => {
       `gesut@ekoapp:~$&nbsp;<span class="shell_out__"></span><span class="__cursor__" style="display: none;">█</span>`
     );
 
-    $('.reply_line_.active').text(data.message);
+    $('.reply_line_.active').html(data.message);
 
     line_.append(content_);
     screen__.append(line_).scrollTop(99999);
@@ -67,6 +67,8 @@ $(() => {
     if (e.keyCode == 13) {
       cmd_in_progress = true;
 
+      let cmdContent = $('.line__.active').find('.shell_out__').text()
+
       $('.reply_line_.active').removeClass('active');
 
       let replyLine = $('<p>');
@@ -74,18 +76,12 @@ $(() => {
 
       replyLine.append(cursor__);
 
+
+      $('.line__.active').find('.__cursor__').remove();
+      $('.line__').removeClass('active');
       $('#screen').append(replyLine);
 
-      $('.line__.active')
-        .find('.__cursor__')
-        .remove();
-      $('.line__').removeClass('active');
-      socket.emit(
-        '_cmd',
-        $('.line__.active')
-          .find('.shell_out__')
-          .text()
-      );
+      socket.emit('_cmd', { message: cmdContent });
     }
   });
 
