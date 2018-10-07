@@ -88,7 +88,7 @@ class Router {
         return cost;
     }
 
-    getParsedRoutes(start, finish) {
+    getAllPossibleRoutes(start, finish) {
         let result = [];
         let routes = this.traceAllPaths(start, finish);
 

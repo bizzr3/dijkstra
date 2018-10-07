@@ -1,10 +1,12 @@
 'use strict';
 const PropertiesReader = require('properties-reader');
 const replies = PropertiesReader(process.env.PWD + '/src/utils/commandParser/replies.properties')
-const Router = require
+const Router = require('../Router');
 
 class commandParser {
     constructor() {
+        this.router = new Router();
+
         this.supportedCmds = {
             route: {
                 max_segments: 4,
@@ -34,10 +36,21 @@ class commandParser {
             return isInvalidCmd;
         }
 
-        return 'CMD ok.'
+        return this.getCmdResult(cmd);
     }
 
-    generateReply(type, data) {
+    getCmdResult(cmd) {
+        switch (cmd[0]) {
+            case 'route':
+                if (cmd[1] === '-all') {
+                    return this.router.getAllPossibleRoutes(cmd[2], cmd[3])
+                }
+
+                break;
+        }
+    }
+
+    generateErrorReply(type, data) {
         switch (type) {
             case this.errors.WSH_CMD_NOT_FOUND:
                 return `<span class='text-danger'>wsh: ${replies.get('not-found')}: ${data}</span>`;
@@ -50,15 +63,15 @@ class commandParser {
 
     validateCmd(cmd) {
         if (!this.isCmdExists(cmd[0])) {
-            return this.generateReply(this.errors.WSH_CMD_NOT_FOUND, cmd[0])
+            return this.generateErrorReply(this.errors.WSH_CMD_NOT_FOUND, cmd[0])
         }
 
         if (!this.hasValidSegments(cmd[0], cmd.length)) {
-            return this.generateReply(this.errors.WSH_CMD_BAD_REQUEST, cmd[0])
+            return this.generateErrorReply(this.errors.WSH_CMD_BAD_REQUEST, cmd[0])
         }
 
         if (!this.hasValidOption(cmd[0], cmd[1])) {
-            return this.generateReply(this.errors.WSH_CMD_BAD_REQUEST, cmd[0])
+            return this.generateErrorReply(this.errors.WSH_CMD_BAD_REQUEST, cmd[0])
         }
 
         return false;
