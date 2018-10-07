@@ -1,0 +1,110 @@
+body {
+  background-color: #cccccc !important;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
+}
+
+/* Terminal */
+
+#head {
+  font-family: monospace;
+  color: #fff;
+  margin: auto;
+  padding: 35px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#bar {
+  text-align: center;
+  width: 750px;
+  height: 25px;
+  background-color: #dad9d9;
+  margin: 0 auto;
+  font-family: monospace;
+  padding: auto;
+  float: none;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+#red {
+  background-color: #e94b35;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  margin: 0 auto;
+  left: -47%;
+  bottom: -20%;
+  position: relative;
+}
+
+#yellow {
+  background-color: #f0f000;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  margin: 0 auto;
+  left: -44%;
+  bottom: 40%;
+  position: relative;
+  display: block;
+}
+
+#green {
+  background-color: #1aaf5c;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  margin: 0 auto;
+  left: -41%;
+  bottom: 99%;
+  position: relative;
+  display: block;
+}
+
+#screen {
+  background-color: #33485e;
+  width: 750px;
+  height: 450px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 0 auto;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+#terminal_wrapper_ {
+  margin-top: 100px;
+}
+
+.font,
+p {
+  color: #fff;
+  font-family: monospace;
+  font-size: 15px;
+  text-align: left;
+  position: static;
+}
+
+#coming_soon__ {
+  font-size: 16px;
+}
+
+.shell_out__ {
+  overflow-wrap: break-word;
+}
+
+.reply_line_ {
+  margin: 5px;
+  margin-top: -7px;
+}
+
+.logo_ {
+  width: 100px;
+}
