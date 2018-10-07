@@ -1,5 +1,5 @@
 $(() => {
-  let socket = io.connect('http://127.0.0.1:8090');
+  let socket = io.connect('http://eko.mouschti.me');
   let cmd_in_progress = false;
 
   let cursor__ = $('<span>');
