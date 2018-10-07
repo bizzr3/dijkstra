@@ -21,10 +21,10 @@ class Router {
         this.maple = new Graph();
 
         this.graphSetup.forEach((entry) => {
-            var dataSet = entry.split('-');
-            var fromNode = dataSet[0];
-            var toNode = dataSet[1];
-            var cost = dataSet[2];
+            let dataSet = entry.split('-');
+            let fromNode = dataSet[0];
+            let toNode = dataSet[1];
+            let cost = dataSet[2];
 
             if (!this.maple.hasEdges(fromNode, toNode)) {
                 this.maple.addEdges(fromNode, toNode, cost);
@@ -49,7 +49,7 @@ class Router {
             this.routes.push(pathList.slice(0));
         } else {
 
-            for (var nextNode in this.maple.edges[startNode]) {
+            for (let nextNode in this.maple.edges[startNode]) {
 
                 if (isVisited.indexOf(nextNode) === -1 || (pathList.indexOf(nextNode) === 0 && nextNode === endNode)) {
 
