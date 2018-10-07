@@ -16,14 +16,8 @@ describe('Test Distict Routes:', () => {
         assert.equal(router.length, 3)
     })
 
-    it(`Possible Routes between E to F should be 1`, function () {
-        let router = new Router().getAllPossibleRoutes('e', 'f');
-
-        assert.equal(router.length, 1)
-    })
-
-    it(`Possible Routes between E to D should be 3`, function () {
-        let router = new Router().getAllPossibleRoutes('e', 'd');
+    it(`Possible Routes between A to f should be 1`, function () {
+        let router = new Router().getAllPossibleRoutes('a', 'f');
 
         assert.equal(router.length, 1)
     })
